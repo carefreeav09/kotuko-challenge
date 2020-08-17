@@ -1,0 +1,11 @@
+.loading-component img {
+    height: 200px;
+}
+
+.loading-component {
+    height: calc(40vh);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    vertical-align: middle;
+}

@@ -1,11 +1,3 @@
-import React from 'react';
+import Main from './containers/List';
 
-const Index = () => {
-    return (
-        <div>
-           Home
-        </div>
-    );
-};
-
-export default Index;
+export default Main;

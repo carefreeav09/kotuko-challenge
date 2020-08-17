@@ -1,19 +1,32 @@
 import React , {Fragment} from 'react';
-import {Switch, Route} from 'react-router-dom';
+import {Switch, Route, withRouter} from 'react-router-dom';
 import loadable from '@loadable/component';
 
-import Header from '../layout/header'
-
 const AsyncHome = loadable(() => import('./home'));
+const AsyncHomeDetails = loadable(() => import('./home/containers/Details'));
+
+const NotFound = props => {
+    return (<section className="hero">
+        <div className="hero-body">
+            <div className="container">
+                <h1 className="title has-text-centered">
+                    Github project doesn't exist
+                </h1>
+            </div>
+        </div>
+    </section>)
+}
 
 const App = () => (
     <Fragment>
-        <Header />
+        {/*<Header />*/}
         <Switch>
-            <Route path="/" exact component={AsyncHome} />
+            <Route exact path="/" component={AsyncHome}/>
+            <Route exact path="/:name/:project" component={AsyncHomeDetails} />
+            <Route exact path="/*" component={NotFound}/>
         </Switch>
     </Fragment>
 );
 
-export default App;
+export default withRouter(App);
 
