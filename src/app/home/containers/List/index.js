@@ -20,9 +20,9 @@ const HomeContainer = props => {
     }
 
     return (
-        <SearchContextProvider>
+        <SearchContextProvider fetchRepositories={fetchRepositories}
+        >
             <Main
-                fetchRepositories={fetchRepositories}
                 {...props}
             />
         </SearchContextProvider>
@@ -36,6 +36,7 @@ const mapStateToProps = state => ({
     repositories: state.repositories.payload,
     repositoriesError: state.repositories.errors,
     repositoriesLoading: state.repositories.loading,
+    repositoriesPagination: state.repositories.pagination,
 });
 
 /**

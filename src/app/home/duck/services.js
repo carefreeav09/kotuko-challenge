@@ -11,7 +11,7 @@ export const fetchRepositories = (query) => {
         dispatch(repositoriesFetchRequest());
         return fetch(`search/repositories?q=${query}`)
             .then((response) => {
-                    dispatch(repositoriesFetchRequestSuccess(response.data.items));
+                    dispatch(repositoriesFetchRequestSuccess(response.data));
             })
             .catch((error) => dispatch(repositoriesFetchRequestFailure(error.response.data)));
     };

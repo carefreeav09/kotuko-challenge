@@ -9,6 +9,8 @@ const INITIAL_STATE = {
     payload: null,
     loading: false,
     errors: {},
+    pagination : {}
+
 };
 
 /**
@@ -26,8 +28,9 @@ const buttonColorReducer = (state, action) => {
         case REPOSITORIES_FETCH_REQUEST_SUCCESS:
             return Object.assign({}, state, {
                 loading: false,
-                payload: action.data,
+                payload: action.data.items,
                 errors: {},
+                pagination: action.data.total_count,
             });
 
         case REPOSITORIES_FETCH_REQUEST_FAILURE:
@@ -41,6 +44,7 @@ const buttonColorReducer = (state, action) => {
                 loading: false,
                 payload:null,
                 errors: {},
+                pagination : {}
             });
 
         default:

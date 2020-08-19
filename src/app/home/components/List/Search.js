@@ -1,13 +1,7 @@
 import React, {useState} from 'react';
 
 const Search = (props) => {
-    const {searchInput, sortOption, resultsPerPageOption, setSearchInput, setResultsPerPageOption, setSortOption} = props
-
-    const handleFetchRepositories = (e) => {
-        e.preventDefault();
-        const searchQuery = `${searchInput}&sort=${sortOption}&per_page=${resultsPerPageOption}`
-        props.fetchRepositories(searchQuery);
-    }
+    const {setSearchInput, setResultsPerPageOption, setSortOption, handleFetchRepositories, pageNumber} = props
 
     return (
         <React.Fragment>
@@ -79,7 +73,7 @@ const Search = (props) => {
                 </div>
 
                 <div className="column">
-                    <button className="button is-large is-dark btn__mt-5" onClick={e => handleFetchRepositories(e)}>
+                    <button className="button is-large is-dark btn__mt-5" onClick={e => handleFetchRepositories(e, pageNumber)}>
                         <span>Search</span>
                     </button>
                 </div>
