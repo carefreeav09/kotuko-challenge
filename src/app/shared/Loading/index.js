@@ -7,7 +7,7 @@ const Index = () => {
         <div
             className="text-center loading-component"
         >
-                <img src={Loading} alt={'loading image'} />
+                <img src={Loading} alt={'loading'} />
         </div>
     );
 };

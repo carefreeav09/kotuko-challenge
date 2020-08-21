@@ -1,13 +1,12 @@
 import React from 'react';
 
 const Profile = (props) => {
-    const { repositories, repositoriesLoading, repositoriesError, users} = props;
+    const { repositories, users} = props;
     return (
         <div className="card">
-            {console.log(users, 'users')}
             <div className="card-image">
                 <figure className="image is-4by3">
-                    <img src={repositories?.owner?.avatar_url} alt="Placeholder image" />
+                    <img src={repositories?.owner?.avatar_url} alt="Placeholder" />
                 </figure>
             </div>
             <div className="card-content">

@@ -12,6 +12,7 @@ const List = (props) => {
     return (
         <section className="section">
             <div className="container">
+
                 <Search {...props} {...searchContextData} />
 
                 <Result {...props} {...searchContextData} />

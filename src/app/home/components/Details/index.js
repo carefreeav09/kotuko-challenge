@@ -1,21 +1,44 @@
 import React, {useEffect} from 'react';
 import Profile from "./Profile";
-import {useParams} from "react-router-dom";
+import {Link, useParams} from "react-router-dom";
 import Markdown from "./Markdown";
+
+import Loading from '../../../shared/Loading'
 
 const Details = (props) => {
     const {name, project} = useParams();
-    const {fetchRepositoryDetails, users, fetchUsersInfo, repositories} = props;
+    const {fetchRepositoryDetails, fetchUsersInfo, repositories, repositoriesLoading} = props;
 
     useEffect(() => {
         fetchRepositoryDetails(`${name}/${project}`);
         fetchUsersInfo(`${name}`);
     }, [name, project]);
 
+    const markdownProps = {
+        user: name,
+        project: project,
+        branch: repositories?.default_branch
+    }
+
+    if(repositoriesLoading){
+        return <Loading />
+    }
 
     return (
         <section className="section">
             <div className="container">
+
+                <Link to={{
+                    pathname: "/",
+
+                }}>
+                    <button className="button is-small mb-5 is-rounded">
+                        <span className="icon">
+                          <i className="fas fa-chevron-left" />
+                        </span>
+                        <span>Go back</span>
+                    </button>
+                </Link>
                 <div className="columns">
                     <div className="column is-one-third">
                         <Profile {...props} />
@@ -24,14 +47,15 @@ const Details = (props) => {
                         <p className="title is-3">{repositories?.name}</p>
                         <p className="subtitle is-6">{repositories?.description}</p>
                         <br/>
-                        <p className="subtitle is-6 mb-0">Open Issues : <strong>{repositories?.open_issues_count}</strong></p>
+                        <p className="subtitle is-6 mb-0">Open Issues
+                            : <strong>{repositories?.open_issues_count}</strong></p>
                         <br/>
-                        <p className="subtitle is-6 mb-0">Default Branch : <strong>{repositories?.default_branch}</strong></p>
+                        <p className="subtitle is-6 mb-0">Default Branch
+                            : <strong>{repositories?.default_branch}</strong></p>
 
                     </div>
                 </div>
-
-                <Markdown {...props} />
+                <Markdown {...props} {...markdownProps}/>
             </div>
         </section>
     );

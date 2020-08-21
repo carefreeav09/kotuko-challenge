@@ -13,11 +13,11 @@ const Pagination = (props) => {
     }
 
     useEffect(() => {
-        let x = paginate(repositoriesPagination, pageNumber, resultsPerPageOption, 6);
-        setNumbersArray(x.pages);
-        setStartingItems(x.firstItems);
-        setLastItems(x.lastItems);
-    }, [])
+        let results = paginate(repositoriesPagination, pageNumber, resultsPerPageOption, 6);
+        setNumbersArray(results.pages);
+        setStartingItems(results.firstItems);
+        setLastItems(results.lastItems);
+    }, [repositoriesPagination,pageNumber,resultsPerPageOption])
 
     return (
         <nav className="pagination is-medium" role="navigation" aria-label="pagination">

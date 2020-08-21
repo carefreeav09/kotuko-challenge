@@ -1,7 +1,8 @@
 import {
     repositoriesFetchRequest,
     repositoriesFetchRequestSuccess,
-    repositoriesFetchRequestFailure
+    repositoriesFetchRequestFailure,
+    singleRepositoryFetchRequestSuccess
 } from "./actions";
 
 import { fetch} from "../../../utils/httpUtil";
@@ -22,7 +23,7 @@ export const fetchRepositoryDetails = (query) => {
         dispatch(repositoriesFetchRequest());
         return fetch(`repos/${query}`)
             .then((response) => {
-                dispatch(repositoriesFetchRequestSuccess(response.data));
+                dispatch(singleRepositoryFetchRequestSuccess(response.data));
             })
             .catch((error) => dispatch(repositoriesFetchRequestFailure(error.response.data)));
     };

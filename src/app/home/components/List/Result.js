@@ -28,14 +28,18 @@ const Result = (props) => {
                     <article className="media">
                         <div className="media-left">
                             <figure className="image is-64x64">
-                                <img src={item?.owner?.avatar_url} alt="Image"/>
+                                <img src={item?.owner?.avatar_url} alt="profile"/>
                             </figure>
                         </div>
                         <div className="media-content">
                             <Link to={{
                                 pathname: `/${item?.full_name}`,
-                                search: ''
-
+                                state : {
+                                    searchInput: props.searchInput,
+                                    sortOption: props.sortOption,
+                                    resultsPerPageOption: props.resultsPerPageOption,
+                                    pageNumber: props.pageNumber
+                                }
                             }}>
                                 <div className="content">
                                     <p>

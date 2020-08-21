@@ -1,26 +1,14 @@
-import React, {Fragment, useEffect, useState} from 'react';
+import React, {Fragment, useEffect} from 'react';
 import ReactMarkdown from "react-markdown";
+import Loading from '../../../shared/Loading'
+import {isEmpty} from "../../../../utils/commonUtil";
 
 const Markdown = (props) => {
-    let [string, setString] = useState();
+    const {fetchMarkdown, markdown, markdownLoading, user, project, branch} = props;
 
     useEffect(() => {
-        const fetchMarkdown = () => {
-            fetch('https://raw.githubusercontent.com/carefreeav09/kotuko-challenge/master/README.md')
-                .then(response => response.text())
-                .then(html => {
-                    let parser = new DOMParser();
-                    let doc = parser.parseFromString(html, 'text/html');
-                    let bodyText = doc.querySelector('body');
-                    setString(String(bodyText.innerText));
-                })
-                .catch(err => {
-                    console.warn('something went wrong', err);
-                });
-        }
-
-        fetchMarkdown();
-    }, [])
+        !isEmpty(branch) && fetchMarkdown(user, project, branch);
+    }, [user, project, branch]);
 
 
     return (
@@ -29,7 +17,12 @@ const Markdown = (props) => {
                 Readme.md
             </h1>
             <div className={'content markdown'}>
-                <ReactMarkdown source={string} />
+                {!markdownLoading && branch ?
+                    <ReactMarkdown source={markdown}/>
+                    :
+                    <Loading/>
+                }
+
             </div>
         </Fragment>
     );

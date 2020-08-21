@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React from 'react';
 
 const Search = (props) => {
     const {setSearchInput, setResultsPerPageOption, setSortOption, handleFetchRepositories, pageNumber} = props;

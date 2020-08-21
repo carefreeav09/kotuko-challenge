@@ -2,11 +2,10 @@ import axios from 'axios';
 import { push} from 'connected-react-router';
 
 import {
-    API_URL
+    API_URL,
 } from '../constants/appConfig';
-import configureStore from "../store/configureStore";
-import { getLocalStorage, setLocalStorage, clearLocalStorage } from './storageUtil';
 
+import configureStore from "../store/configureStore";
 const store = configureStore();
 
 export const httpBase = () => {
