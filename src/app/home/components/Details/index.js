@@ -20,8 +20,8 @@ const Details = (props) => {
         branch: repositories?.default_branch
     }
 
-    if(repositoriesLoading){
-        return <Loading />
+    if (repositoriesLoading) {
+        return <Loading/>
     }
 
     return (
@@ -34,7 +34,7 @@ const Details = (props) => {
                 }}>
                     <button className="button is-small mb-5 is-rounded">
                         <span className="icon">
-                          <i className="fas fa-chevron-left" />
+                          <i className="fas fa-chevron-left"/>
                         </span>
                         <span>Go back</span>
                     </button>
@@ -44,7 +44,11 @@ const Details = (props) => {
                         <Profile {...props} />
                     </div>
                     <div className="column">
-                        <p className="title is-3">{repositories?.name}</p>
+                        <p className="title is-3">
+                            <a href={repositories?.html_url} target="_blank">
+                                {repositories?.name}
+                            </a>
+                        </p>
                         <p className="subtitle is-6">{repositories?.description}</p>
                         <br/>
                         <p className="subtitle is-6 mb-0">Open Issues
