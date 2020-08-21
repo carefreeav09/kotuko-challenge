@@ -9,6 +9,12 @@ export const isEmpty = (obj) => {
 export const paginate = (totalItems, currentPage, pageSize, maxPages = 5) => {
     let firstItems = [];
     let lastItems = [];
+    let startPage, endPage;
+
+    //Total items only set to default 1000 as github allows to fetch only 1000 data.
+    if(totalItems > 1000){
+        totalItems = 1000;
+    }
     let totalPages = Math.ceil(totalItems/pageSize);
 
     if(currentPage < 1){
@@ -18,7 +24,6 @@ export const paginate = (totalItems, currentPage, pageSize, maxPages = 5) => {
         currentPage = totalPages;
     }
 
-    let startPage, endPage;
     if(totalPages <= maxPages)
     {
         startPage = 1;
@@ -45,8 +50,8 @@ export const paginate = (totalItems, currentPage, pageSize, maxPages = 5) => {
 
     let pages = Array.from(Array((endPage + 1) - startPage).keys()).map(i => startPage + i);
 
-    if(!pages.includes(2)){
-        firstItems.push(1, 2);
+    if(!pages.includes(1)){
+        firstItems.push(1);
     }
 
     if(!pages.includes(totalPages))

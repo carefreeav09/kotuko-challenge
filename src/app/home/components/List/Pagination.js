@@ -8,20 +8,12 @@ const Pagination = (props) => {
     const [startingItems, setStartingItems] = useState([]);
     const [lastItems, setLastItems] = useState([]);
 
-    const createArrayWithNumbers = () => {
-        let totalPaginationArrayLength = Math.ceil(repositoriesPagination/resultsPerPageOption);
-        let tempArray = Array.from({length: totalPaginationArrayLength}, (v, i ) => i+1);
-
-        setNumbersArray(tempArray);
-    };
-
     const handlePagination = (e, item) => {
         handleFetchRepositories(e, item);
     }
 
     useEffect(() => {
-        //Total items only set to default 1000 as github allows to fetch only 1000 data.
-        let x = paginate(1000, pageNumber, resultsPerPageOption, 6);
+        let x = paginate(repositoriesPagination, pageNumber, resultsPerPageOption, 6);
         setNumbersArray(x.pages);
         setStartingItems(x.firstItems);
         setLastItems(x.lastItems);
@@ -68,11 +60,6 @@ const Pagination = (props) => {
                         )
                     )}
                 </React.Fragment>}
-                {/*<li><a className="pagination-link" aria-label="Goto page 45">45</a></li>*/}
-                {/*<li><a className="pagination-link is-current" aria-label="Page 46" aria-current="page">46</a></li>*/}
-                {/*<li><a className="pagination-link" aria-label="Goto page 47">47</a></li>*/}
-                {/*<li><span className="pagination-ellipsis">…</span></li>*/}
-                {/*<li><a className="pagination-link" aria-label="Goto page 86">86</a></li>*/}
             </ul>
         </nav>
 

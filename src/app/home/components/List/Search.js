@@ -1,7 +1,13 @@
 import React, {useState} from 'react';
 
 const Search = (props) => {
-    const {setSearchInput, setResultsPerPageOption, setSortOption, handleFetchRepositories, pageNumber} = props
+    const {setSearchInput, setResultsPerPageOption, setSortOption, handleFetchRepositories, pageNumber} = props;
+
+    const handleEnterKeyPress = (e) => {
+        if(e.key === 'Enter'){
+            handleFetchRepositories(e, pageNumber)
+        }
+    }
 
     return (
         <React.Fragment>
@@ -20,6 +26,7 @@ const Search = (props) => {
                         <div className="control has-icons-left">
                             <input
                                 onChange={event => setSearchInput(event.target.value)}
+                                onKeyDown={event => handleEnterKeyPress(event)}
                                 className="input is-large"
                                 type="text"
                                 placeholder="search by repository"

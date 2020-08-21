@@ -6,7 +6,7 @@ import Pagination from "./Pagination";
 import {isEmpty} from "../../../../utils/commonUtil";
 
 const Result = (props) => {
-    const {repositories, repositoriesLoading, repositoriesError} = props;
+    const {repositories, repositoriesLoading} = props;
 
     if (repositoriesLoading) {
         return <Loading/>

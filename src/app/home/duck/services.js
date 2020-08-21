@@ -20,9 +20,9 @@ export const fetchRepositories = (query) => {
 export const fetchRepositoryDetails = (query) => {
     return (dispatch) => {
         dispatch(repositoriesFetchRequest());
-        return fetch(`search/repositories?q=${query}`)
+        return fetch(`repos/${query}`)
             .then((response) => {
-                dispatch(repositoriesFetchRequestSuccess(response.data.items));
+                dispatch(repositoriesFetchRequestSuccess(response.data));
             })
             .catch((error) => dispatch(repositoriesFetchRequestFailure(error.response.data)));
     };

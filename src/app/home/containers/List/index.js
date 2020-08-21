@@ -33,7 +33,7 @@ const HomeContainer = props => {
  * Map the state to props.
  */
 const mapStateToProps = state => ({
-    repositories: state.repositories.payload,
+    repositories: state?.repositories?.payload?.items,
     repositoriesError: state.repositories.errors,
     repositoriesLoading: state.repositories.loading,
     repositoriesPagination: state.repositories.pagination,

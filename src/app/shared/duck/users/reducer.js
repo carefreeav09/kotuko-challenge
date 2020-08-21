@@ -1,8 +1,8 @@
 import {
-    REPOSITORIES_FETCH_REQUEST,
-    REPOSITORIES_FETCH_REQUEST_SUCCESS,
-    REPOSITORIES_FETCH_REQUEST_FAILURE,
-    REPOSITORIES_CLEAN_REQUEST,
+    USERS_FETCH_REQUEST,
+    USERS_FETCH_REQUEST_SUCCESS,
+    USERS_FETCH_REQUEST_FAILURE,
+    USERS_CLEAN_REQUEST,
 } from './types';
 
 const INITIAL_STATE = {
@@ -10,7 +10,6 @@ const INITIAL_STATE = {
     loading: false,
     errors: {},
     pagination : {}
-
 };
 
 /**
@@ -20,26 +19,25 @@ const repositoriesReducer = (state, action) => {
     state = state || INITIAL_STATE;
 
     switch (action.type) {
-        case REPOSITORIES_FETCH_REQUEST:
+        case USERS_FETCH_REQUEST:
             return Object.assign({}, state, {
                 loading: true,
             });
 
-        case REPOSITORIES_FETCH_REQUEST_SUCCESS:
+        case USERS_FETCH_REQUEST_SUCCESS:
             return Object.assign({}, state, {
                 loading: false,
                 payload: action.data,
                 errors: {},
-                pagination: action.data.total_count,
             });
 
-        case REPOSITORIES_FETCH_REQUEST_FAILURE:
+        case USERS_FETCH_REQUEST_FAILURE:
             return Object.assign({}, state, {
                 loading: false,
                 errors: action.error,
             });
 
-        case REPOSITORIES_CLEAN_REQUEST:
+        case USERS_CLEAN_REQUEST:
             return Object.assign({}, state, {
                 loading: false,
                 payload:null,

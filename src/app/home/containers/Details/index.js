@@ -6,6 +6,8 @@ import Main from "../../components/Details";
 
 import * as action from "../../duck/actions";
 import * as service from "../../duck/services";
+import * as usersService from "../../../shared/duck/users/services";
+import * as usersActions from '../../../shared/duck/users/actions';
 
 const HomeContainer = props => {
 
@@ -14,13 +16,23 @@ const HomeContainer = props => {
      * @param {string} query
      *
      */
-    const fetchRepositories = (query) => {
-        props.actions.fetchRepositories(query);
+    const fetchRepositoryDetails = (query) => {
+        props.actions.fetchRepositoryDetails(query);
+    }
+
+    /**
+     * Fetch repository list
+     * @param {string} query
+     *
+     */
+    const fetchUsersInfo = (query) => {
+        props.actions.fetchUsersInfo(query);
     }
 
     return (
         <Main
-            fetchRepositories={fetchRepositories}
+            fetchRepositoryDetails={fetchRepositoryDetails}
+            fetchUsersInfo={fetchUsersInfo}
             {...props}
         />
     );
@@ -33,6 +45,9 @@ const mapStateToProps = state => ({
     repositories: state.repositories.payload,
     repositoriesError: state.repositories.errors,
     repositoriesLoading: state.repositories.loading,
+    users : state.users.payload,
+    usersLoading: state.users.loading,
+    usersError: state.users.errors
 });
 
 /**
@@ -43,7 +58,9 @@ const mapDispatchToProps = dispatch => {
         actions: bindActionCreators(
             Object.assign({},
                 action,
-                service
+                service,
+                usersService,
+                usersActions
             ),
             dispatch
         )

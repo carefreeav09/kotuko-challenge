@@ -6,6 +6,7 @@ import {Provider} from "react-redux";
 
 import App from './app/App';
 import './assets/sass/App.sass';
+import './assets/css/custom.css'
 import * as serviceWorker from './serviceWorker';
 import configureStore, {history} from "./store/configureStore";
 

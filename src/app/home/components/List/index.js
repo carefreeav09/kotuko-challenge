@@ -1,11 +1,10 @@
-import React, {useContext, useEffect, useState} from 'react';
+import React, {useContext} from 'react';
 import './style.css'
 
 import Search from "./Search";
 import Result from "./Result";
 
 import {SearchContext} from "../../../shared/Contexts/SearchContext";
-import Pagination from "./Pagination";
 
 const List = (props) => {
     const searchContextData = useContext(SearchContext);
