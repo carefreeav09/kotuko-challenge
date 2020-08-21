@@ -1,7 +1,7 @@
 import React from 'react';
 
 const Search = (props) => {
-    const {setSearchInput, setResultsPerPageOption, setSortOption, handleFetchRepositories, pageNumber} = props;
+    const {setSearchInput,searchInput,  setResultsPerPageOption, setSortOption, handleFetchRepositories, pageNumber} = props;
 
     const handleEnterKeyPress = (e) => {
         if(e.key === 'Enter'){
@@ -30,6 +30,7 @@ const Search = (props) => {
                                 className="input is-large"
                                 type="text"
                                 placeholder="search by repository"
+                                defaultValue={searchInput}
                             />
                             <span className="icon is-small is-left">
                                   <i className="fab fa-github"/>

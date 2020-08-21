@@ -34,12 +34,6 @@ const Result = (props) => {
                         <div className="media-content">
                             <Link to={{
                                 pathname: `/${item?.full_name}`,
-                                state : {
-                                    searchInput: props.searchInput,
-                                    sortOption: props.sortOption,
-                                    resultsPerPageOption: props.resultsPerPageOption,
-                                    pageNumber: props.pageNumber
-                                }
                             }}>
                                 <div className="content">
                                     <p>

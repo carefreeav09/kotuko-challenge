@@ -3,7 +3,6 @@ import {bindActionCreators} from "redux";
 import {connect} from "react-redux";
 
 import Main from "../../components/List";
-import SearchContextProvider from "../../../shared/Contexts/SearchContext";
 
 import * as action from "../../duck/actions";
 import * as service from "../../duck/services";
@@ -20,12 +19,10 @@ const HomeContainer = props => {
     }
 
     return (
-        <SearchContextProvider fetchRepositories={fetchRepositories}
-        >
             <Main
+                fetchRepositories={fetchRepositories}
                 {...props}
             />
-        </SearchContextProvider>
     );
 }
 

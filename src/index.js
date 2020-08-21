@@ -9,6 +9,7 @@ import './assets/sass/App.sass';
 import './assets/css/custom.css'
 import * as serviceWorker from './serviceWorker';
 import configureStore, {history} from "./store/configureStore";
+import SearchContextProvider from "./app/shared/Contexts/SearchContext";
 
 const store = configureStore();
 
@@ -22,7 +23,9 @@ ReactDOM.render(
             <Provider store={store}>
                 <ConnectedRouter history={history}>
                     <Router history={history}>
-                        <App/>
+                        <SearchContextProvider>
+                            <App/>
+                        </SearchContextProvider>
                     </Router>
                 </ConnectedRouter>
             </Provider>
