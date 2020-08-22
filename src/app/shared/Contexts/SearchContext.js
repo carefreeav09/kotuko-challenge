@@ -1,5 +1,4 @@
 import React, {createContext, useState} from 'react';
-import {getLocalStorage, setLocalStorage} from "../../../utils/storageUtil";
 
 export const SearchContext = createContext();
 
