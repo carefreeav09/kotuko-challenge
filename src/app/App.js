@@ -1,21 +1,10 @@
 import React , {Fragment} from 'react';
 import {Switch, Route, withRouter} from 'react-router-dom';
 import loadable from '@loadable/component';
+import NotFound from '../app/shared/NotFound'
 
-const AsyncHome = loadable(() => import('./home'));
-const AsyncHomeDetails = loadable(() => import('./home/containers/Details'));
-
-const NotFound = props => {
-    return (<section className="hero">
-        <div className="hero-body">
-            <div className="container">
-                <h1 className="title has-text-centered">
-                    Github project doesn't exist
-                </h1>
-            </div>
-        </div>
-    </section>)
-}
+const AsyncHome = loadable(() => import('./search'));
+const AsyncHomeDetails = loadable(() => import('./search/containers/Details/MainContainer'));
 
 const App = () => (
     <Fragment>

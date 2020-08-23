@@ -2,7 +2,7 @@ import React from "react";
 import {bindActionCreators} from "redux";
 import {connect} from "react-redux";
 
-import Main from "../../components/List";
+import Main from "../../components/List/List";
 
 import * as action from "../../duck/actions";
 import * as service from "../../duck/services";

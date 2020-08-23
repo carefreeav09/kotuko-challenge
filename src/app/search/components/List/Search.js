@@ -1,4 +1,5 @@
-import React from 'react';
+import React, {useState} from 'react';
+import {isEmpty} from "../../../../utils/commonUtil";
 
 const Search = (props) => {
     const {setSearchInput,searchInput,  setResultsPerPageOption, setSortOption, handleFetchRepositories, pageNumber} = props;
@@ -6,6 +7,16 @@ const Search = (props) => {
     const handleEnterKeyPress = (e) => {
         if(e.key === 'Enter'){
             handleFetchRepositories(e, pageNumber)
+        }
+    }
+
+    const handleSearchInput = (e) => {
+        if(isEmpty(e))
+        {
+            setSearchInput(null);
+        }
+        else {
+            setSearchInput(e);
         }
     }
 
@@ -25,7 +36,7 @@ const Search = (props) => {
                     <div className="field">
                         <div className="control has-icons-left">
                             <input
-                                onChange={event => setSearchInput(event.target.value)}
+                                onChange={event => handleSearchInput(event.target.value)}
                                 onKeyDown={event => handleEnterKeyPress(event)}
                                 className="input is-large"
                                 type="text"
@@ -34,7 +45,7 @@ const Search = (props) => {
                             />
                             <span className="icon is-small is-left">
                                   <i className="fab fa-github"/>
-                                </span>
+                            </span>
                         </div>
                     </div>
                 </div>

@@ -1,7 +1,7 @@
 import { combineReducers } from 'redux';
 import { connectRouter } from 'connected-react-router';
 
-import repositoriesReducer from '../app/home/duck/reducer';
+import repositoriesReducer from '../app/search/duck/reducer';
 import usersReducer from '../app/shared/duck/users/reducer';
 import markdownReducer from '../app/shared/duck/markdown/reducer'
 

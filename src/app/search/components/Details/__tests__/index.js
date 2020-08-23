@@ -3,7 +3,7 @@ import Enzyme, {mount, shallow} from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
 import {BrowserRouter as Router} from 'react-router-dom';
 
-import Home from '../index';
+import Home from '../Main';
 import {SearchContext} from "../../../../shared/Contexts/SearchContext";
 import {details} from '../../../../../../__mock/search';
 
