@@ -15,9 +15,6 @@ const List = (props) => {
     const handleFetchRepositories = (e, page) => {
         e.preventDefault();
         setPageNumber(page);
-
-        console.log(searchInput, 'search query');
-
         const searchQuery = `${searchInput}&sort=${sortOption}&per_page=${resultsPerPageOption}&page=${page}`
         props.fetchRepositories(searchQuery);
     }
