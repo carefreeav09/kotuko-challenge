@@ -1,5 +1,6 @@
-import React, {useState} from 'react';
+import React from 'react';
 import {isEmpty} from "../../../../utils/commonUtil";
+import history from "../../../../utils/history";
 
 const Search = (props) => {
     const {setSearchInput,searchInput,  setResultsPerPageOption, setSortOption, handleFetchRepositories, pageNumber} = props;
@@ -18,6 +19,7 @@ const Search = (props) => {
         else {
             setSearchInput(e);
         }
+        history.push(`/${e}`);
     }
 
     return (

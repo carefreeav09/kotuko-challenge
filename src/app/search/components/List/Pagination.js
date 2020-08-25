@@ -17,13 +17,10 @@ const Pagination = (props) => {
         setNumbersArray(results.pages);
         setStartingItems(results.firstItems);
         setLastItems(results.lastItems);
-    }, [repositoriesPagination,pageNumber,resultsPerPageOption])
+    }, [repositoriesPagination,resultsPerPageOption])
 
     return (
         <nav className="pagination is-medium" role="navigation" aria-label="pagination">
-            <a className="pagination-previous">Previous</a>
-            <a className="pagination-next">Next page</a>
-
             <ul className="pagination-list">
                 {!isEmpty(startingItems) && <React.Fragment>
                     {startingItems.map((item, itemIndex) => (

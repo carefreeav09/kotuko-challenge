@@ -25,6 +25,9 @@ export const fetchRepositoryDetails = (query) => {
             .then((response) => {
                 dispatch(singleRepositoryFetchRequestSuccess(response.data));
             })
-            .catch((error) => dispatch(repositoriesFetchRequestFailure(error.response.data)));
+            .catch((error) =>
+            {
+                dispatch(repositoriesFetchRequestFailure(error.response.data))
+            });
     };
 };

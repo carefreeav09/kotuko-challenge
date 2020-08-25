@@ -480,6 +480,10 @@ export const result = {
     ]
 };
 
+export const resultErrors = {
+    data : "No repository found"
+}
+
 export const details = {
     "id": 10270250,
     "node_id": "MDEwOlJlcG9zaXRvcnkxMDI3MDI1MA==",

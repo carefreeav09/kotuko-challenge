@@ -7,6 +7,17 @@ The project was built with [React](https://reactjs.org/) ( Hooks api ), [Redux](
 
 <hr>
 
+### Screenshot(s)
+
+Home Page
+![Home Page](indexSearch.png)
+<hr>
+Detail Page
+
+![Detail Page](detailsPage.png)
+
+<hr>
+
 ### Installation and setup instructions
 
 Clone the repository.

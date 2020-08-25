@@ -8,11 +8,10 @@ const AsyncHomeDetails = loadable(() => import('./search/containers/Details/Main
 
 const App = () => (
     <Fragment>
-        {/*<Header />*/}
         <Switch>
-            <Route exact path="/" component={AsyncHome}/>
             <Route exact path="/:name/:project" component={AsyncHomeDetails} />
-            <Route exact path="/*" component={NotFound}/>
+            <Route exact path="/404" component={NotFound}/>
+            <Route path="/*" component={AsyncHome}/>
         </Switch>
     </Fragment>
 );

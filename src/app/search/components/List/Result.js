@@ -6,7 +6,7 @@ import Pagination from "./Pagination";
 import {isEmpty} from "../../../../utils/commonUtil";
 
 const Result = (props) => {
-    const {repositories, repositoriesLoading} = props;
+    const {repositories, repositoriesLoading, searchInput, pageNumber} = props;
 
     if (repositoriesLoading) {
         return <Loading/>
@@ -34,6 +34,9 @@ const Result = (props) => {
                         <div className="media-content">
                             <Link to={{
                                 pathname: `/${item?.full_name}`,
+                                state: {searchQuery: searchInput,
+                                    pageNumber:pageNumber,
+                                }
                             }}>
                                 <div className="content">
                                     <p>

@@ -29,8 +29,8 @@ const Details = (props) => {
             <div className="container">
 
                 <Link to={{
-                    pathname: "/",
-
+                    pathname: `/${props?.location?.state?.searchQuery}`,
+                    state: {pageNumber : props?.location?.state?.pageNumber}
                 }}>
                     <button className="button is-small mb-5 is-rounded">
                         <span className="icon">
@@ -39,6 +39,8 @@ const Details = (props) => {
                         <span>Go back</span>
                     </button>
                 </Link>
+
+
                 <div className="columns">
                     <div className="column is-one-third">
                         <Profile {...props} />
